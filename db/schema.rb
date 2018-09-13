@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2018_09_13_043935) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
@@ -23,13 +22,14 @@ ActiveRecord::Schema.define(version: 2018_09_13_043935) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "coins", force: :cascade do |t|
-    t.string "name"
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
     t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_coins_on_article_id"
+    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  add_foreign_key "coins", "articles"
+  add_foreign_key "comments", "articles"
 end
