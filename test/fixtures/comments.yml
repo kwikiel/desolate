@@ -3,7 +3,9 @@
 one:
   commenter: MyString
   body: MyText
+  article: one
 
 two:
   commenter: MyString
   body: MyText
+  article: two
